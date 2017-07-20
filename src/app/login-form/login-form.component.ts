@@ -21,6 +21,7 @@ loginUser(e){
 var username = e.target.elements[0].value;
 var password = e.target.elements[1].value;
 if(username =="admin"&& password=="admin"){
+  debugger;
   this.user.serUserLoggedIn();
   this.router.navigate(['dashboard']);
   console.log("hello"+username)

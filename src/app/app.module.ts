@@ -13,19 +13,32 @@ import {Component} from '@angular/core';
 import {UserService} from './user.service'
 
 //Guard Import
-import { AuthguardGuard } from './authguard.guard'; 
+import { AuthguardGuard } from './authguard.guard';
+import { UserComponent } from './user/user.component';
+import { NotfoundComponent } from './notfound/notfound.component'; 
 
 const appRoutes:Routes=[
   {
 path:'',
 component: LoginFormComponent
 },
-
+{
+path:'user/:name',
+component: UserComponent,
+},
+{
+path:'user/:name/:id',
+component: UserComponent,
+},
 {
 path:'dashboard',
 canActivate:[AuthguardGuard],   
 component: DashboardComponent
-}
+},
+{
+path:'**',
+component: NotfoundComponent,
+},
 
 ]
 
@@ -35,7 +48,9 @@ component: DashboardComponent
     HeaderComponent,
     LoginFormComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent,
+    NotfoundComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
