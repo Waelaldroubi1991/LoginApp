@@ -27,8 +27,18 @@ path:'user/:name',
 component: UserComponent,
 },
 {
-path:'user/:name/:id',
-component: UserComponent,
+path:'user',
+//component: UserComponent,
+children:[{
+  path:':name',
+  component:UserComponent
+  },
+{
+  path:':name/:id',
+  component: UserComponent,
+}
+
+]
 },
 {
 path:'dashboard',
